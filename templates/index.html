@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Detection</title>
+</head>
+<body>
+    <h1>Facial Emotion Detection</h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Matric Number:</label><br>
+        <input type="text" name="matric" required><br><br>
+
+        <label>Upload your photo:</label><br>
+        <input type="file" name="image" accept="image/*" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if emotion %}
+        <h2>Detected Emotion: {{ emotion }}</h2>
+        <p>{{ message }}</p>
+        <img src="{{ image_path }}" alt="Uploaded Image" width="200">
+    {% endif %}
+</body>
+</html>

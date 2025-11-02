@@ -1,0 +1,19 @@
+# Python / IDE / env
+__pycache__/
+*.pyc
+env/
+venv/
+.idea/
+.vscode/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# SQLite DB and uploaded images (optional: don't upload user data)
+database.db
+static/uploads/
+
+# model only if too large (optional)
+# face_emotionModel.h5
