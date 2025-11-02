@@ -13,7 +13,20 @@ if not os.path.exists('static/uploads'):
 
 
 # ✅ Load trained model
-model = load_model('face_emotionModel.h5')
+from tensorflow.keras.models import load_model
+import os
+
+# Load your model without trying to compile it (avoids old errors)
+model = load_model('face_emotionModel.h5', compile=False)
+
+# Make Flask listen to the port Render gives
+from flask import Flask
+app = Flask(__name__)
+port = int(os.environ.get("PORT", 5000))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=port)
+
 
 # Emotion labels (adjust if needed)
 emotion_labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
