@@ -6,6 +6,12 @@ import os
 import sqlite3
 from werkzeug.utils import secure_filename
 
+import os
+
+if not os.path.exists('static/uploads'):
+    os.makedirs('static/uploads')
+
+
 # ✅ Load trained model
 model = load_model('face_emotionModel.h5')
 
